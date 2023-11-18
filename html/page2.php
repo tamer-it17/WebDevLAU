@@ -53,7 +53,7 @@
               <div id="logout">
                 <a href="?logout=true">Logout</a>
             </div>
-              <div id="user-welcome">welcome <?php echo $_SESSION["username"]; ?></div>
+            <div id="user-welcome">welcome <?php echo "welcome"$_SESSION["username"]; ?></div>
         </div>
 
         <div class="main">
