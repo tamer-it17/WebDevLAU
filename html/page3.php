@@ -7,6 +7,16 @@
         session_destroy();
         header("location:../index.php");
     }
+    function readGalleryFile($filename){
+    $gallery = [];
+    if (file_exists($filename)) {
+        $gallery = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    }
+    return $gallery;
+    }
+
+    $galleryFileName = "../txtfiles/gallery.txt";
+    $galleryImages = readGalleryFile($galleryFileName);
 ?>
 <html>
     <head>
@@ -49,42 +59,27 @@
               <div id="logout">
                 <a href="?logout=true">Logout</a>
             </div>
-            <div id="user-welcome">welcome <?php echo "welcome"$_SESSION["username"]; ?></div>
+            <div id="user-welcome">welcome <?php echo $_SESSION["username"]; ?></div>
         </div>
         <div class="title">
             <span>Gallery</h1>
         </div>
         <div class="gallery">
+        <?php foreach ($galleryImages as $image) : ?>
             <div class="imgs">
-                <a href="#img1">
-                    <img src="../images/image1.jpeg">
+                <a href="#<?php echo $image; ?>">
+                    <img src="../images/<?php echo $image; ?>">
                 </a>
             </div>
-            <div class="imgs">
-                <a href="#img2">
-                    <img src="../images/image2.jpeg">
-                </a>
-            </div>
-            <div class="imgs">
-                <a href="#img3">
-                    <img src="../images/image3.jpeg">
-                </a>
-            </div>
-        </div>
-    
-        <!--images with x button-->
-        <div id="img1" class="overlay">
+        <?php endforeach; ?>
+    </div>
+
+    <?php foreach ($galleryImages as $image) : ?>
+        <div id="<?php echo $image; ?>" class="overlay">
             <a href="#" class="close-btn">&times;</a>
-            <img src="../images/image1.jpeg" class="overlay-img">
+            <img src="../images/<?php echo $image; ?>" class="overlay-img">
         </div>
-        <div id="img2" class="overlay">
-            <a href="#" class="close-btn">&times;</a>
-            <img src="../images/image2.jpeg" class="overlay-img">
-        </div>
-        <div id="img3" class="overlay">
-            <a href="#" class="close-btn">&times;</a>
-            <img src="../images/image3.jpeg" class="overlay-img">
-        </div>
+    <?php endforeach; ?>
 
 </body>
 </html>
