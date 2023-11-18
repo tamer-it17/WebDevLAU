@@ -147,7 +147,7 @@ body{
 .overlay:target {
     display: block;
 }
-.row #user-welcome{
+ #user-welcome{
     display: inline;
     float: right;
     color: white;
