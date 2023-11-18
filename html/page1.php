@@ -3,6 +3,10 @@
     if (!isset($_SESSION["username"])){
         header("location:../index.php");
     }
+    if (isset($_GET["logout"])) {
+        session_destroy();
+        header("location:../index.php");
+    }
 ?>
 <html>
     <head>
@@ -14,7 +18,7 @@
         </title>
     </head>
     <body>
-        <div class="row header center-menu" >
+        <div class="row header rtl-menu" >
             <div id="dropdown">
                 <span><i class='icon'></i>MENU</span>            
                 <div class="dropdown-content">
@@ -41,7 +45,11 @@
                         </a>
                     </ul>
                 </div>
-              </div>
+            </div>
+            <div id="logout">
+                <a href="?logout=true">Logout</a>
+            </div>
+            <div id="user-welcome">welcome <?php echo $_SESSION["username"]; ?></div>
         </div>
         <div class="title">
             <span>HomePage</h1>

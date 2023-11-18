@@ -2,7 +2,6 @@ body{
     margin: 0;
 }
 
-
 .row{
     height: 40px;
     box-sizing: border-box;
@@ -148,8 +147,25 @@ body{
 .overlay:target {
     display: block;
 }
+.row #user-welcome{
+    display: inline;
+    float: right;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+  }
+  #logout a {
+    display: inline;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    background-color:#174878;
+    border-radius: 4px;
+}
 
-
+#logout a:hover {
+    background-color:rgb(15, 40, 73);
+}
 
 
 
@@ -224,3 +240,4 @@ body{
 #exp{
     font-size: small;
 }
+
