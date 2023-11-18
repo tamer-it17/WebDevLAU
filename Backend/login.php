@@ -18,7 +18,7 @@
     if ($loggedIn){
         session_start();
         $_SESSION["username"]=$un;
-        header("location:../html/page1.html");
+        header("location:../html/page1.php");
     }else{
         header("location:../index.php");
     }
