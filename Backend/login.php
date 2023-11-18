@@ -3,6 +3,8 @@
     $un=$_POST["username"];      
     $pass=$_POST["password"];    
 
+    $a_users=array("john.doe","jane.doe","johnny.doe");
+    $a_pass=array("password1","password2","password3");
    
 
     $loggedIn=false;
@@ -14,9 +16,11 @@
     }
 
     if ($loggedIn){
-        echo "login successful.";
+        session_start();
+        $_SESSION["username"]=$un;
+        header("location:../html/page1.html");
     }else{
-        echo "Wrong Username or Password.";
+        header("location:../index.php");
     }
 
 

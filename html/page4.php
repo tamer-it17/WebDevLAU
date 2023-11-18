@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (!isset($_SESSION["username"])){
+        header("location:../index.php");
+    }
+?>
 <html>
     <head>
         <link rel="stylesheet" href="../css/my_style.css"> 
@@ -13,22 +19,22 @@
                 <span><i class='icon'></i>MENU</span>            
                 <div class="dropdown-content">
                     <ul>
-                        <a href="page1.html">
+                        <a href="page1.php">
                         <li class="dropdown-item">
                             Page 1
                         </li>
                         </a>
-                        <a href="page2.html">
+                        <a href="page2.php">
                         <li class="dropdown-item">
                             Page 2
                         </li>
                         </a>
-                        <a href="page3.html">
+                        <a href="page3.php">
                         <li class="dropdown-item">
                             Page 3
                         </li>
                         </a>
-                        <a href="page4.html">
+                        <a href="page4.php">
                             <li class="dropdown-item">
                                 Page 4
                             </li>
